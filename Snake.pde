@@ -33,6 +33,11 @@ class Snake {
 
   }
   
+    void eat() {
+    if (xpos <= food.xpos && ypos <= food.ypos) {
+      food.reset();
+    }
+  }
   //void eat() {
   //  distance = dist(xpos, ypos, food.xpos, food.ypos);
     
