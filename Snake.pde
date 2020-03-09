@@ -1,23 +1,46 @@
 class Snake {
   int xpos, ypos;
-  //int y;
   int objectSize = 20;
+  int speedX = 1;
+  int speedY = 0;
   
-  //Snake() {
-  //  //xpos = mouseX;
-  //  //ypos = mouseY;
-  //  //x = new int;
-  //  //y = new int;
-  //}
+  int distance;
+  
+  //PVector position;
+  //PVector speed; 
+  color snakeColor = color(#92DCE5);
   
   void display() {
-    //x = mouseX;
-    //y = mouseY;
-    xpos = mouseX;
-    ypos = mouseY;
-    fill(255);
+    fill(snakeColor);
     noStroke();
     rect(xpos, ypos, objectSize, objectSize);
   }
+  
+  void direction(int x, int y) {
+    speedX = x;
+    speedY = y;
+  }
+  
+  void move() {
+    xpos += speedX*grid;
+    ypos += speedY*grid;
+    //xpos += speedX;
+    //ypos += speedY;
+    //xpos = int(speedX);
+    //ypos = int(speedY);
+    xpos = constrain(xpos, 0, width-grid);
+    ypos = constrain(ypos, 0, height-grid);
 
+  }
+  
+  //void eat() {
+  //  distance = dist(xpos, ypos, food.xpos, food.ypos);
+    
+  //  if distance < 1 {
+  //    return true;
+  //  }
+  //  else {
+  //    return false;
+  //  }
+  //}
 }
